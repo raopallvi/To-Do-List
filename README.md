@@ -16,3 +16,6 @@ This is a simple to-do list project that allows you to manage and keep track of 
 - HTML
 - CSS
 - JavaScript
+- nodejs
+- express
+- mongoDB
