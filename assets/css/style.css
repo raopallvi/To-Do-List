@@ -1,0 +1,40 @@
+body
+{
+    margin:0;
+    border: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(https://t3.ftcdn.net/jpg/03/57/76/24/360_F_357762401_Q6IYG6rSR6yoy2mnBsOF3ZtuYVzBNARe.jpg);
+    background-size: cover;
+}
+
+.vertical
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal
+{
+    display: flex;
+}
+
+#app-container
+{
+    height: 40vw;
+    width: 50vw;
+    background-color: white;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+}
+
+#header-div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
