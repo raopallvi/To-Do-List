@@ -10,7 +10,7 @@ body {
     /* background: url(https://t3.ftcdn.net/jpg/03/57/76/24/360_F_357762401_Q6IYG6rSR6yoy2mnBsOF3ZtuYVzBNARe.jpg); */
     background-size: cover;
     font-family: sans-serif;
-    background : linear-gradient(to right , skyblue , white);
+    background: linear-gradient(to right, skyblue, white);
 }
 
 .vertical {
@@ -30,7 +30,7 @@ body {
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
     border-bottom-left-radius: 10%;
-    background : linear-gradient(to right , white , rgb(248, 213, 219) );
+    background: linear-gradient(to right, white, rgb(248, 213, 219));
 }
 
 /* Header of app */
@@ -113,6 +113,7 @@ body {
     width: 60% !important;
     margin-top: -6px;
     margin-bottom: 4px;
+    background-color: #FBE3E7;
 }
 
 #date-div p {
@@ -162,6 +163,16 @@ body {
 
 #task-container {
     overflow-y: scroll;
+}
+
+#task-container img {
+    height: 200px;
+    width: 200px;
+    border-radius: 20%;
+    margin-left: 18vw;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    margin-right: 15vw;
 }
 
 #task-container::-webkit-scrollbar {
