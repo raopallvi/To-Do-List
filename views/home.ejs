@@ -22,46 +22,49 @@
         <div id="header-div">
             <h1>TO DO APP</h1>
         </div>
-        <div id="task-details-div" class="vertical">
-            <div id="description-div" class="vertical">
-                <p id="description">DESCRIPTION</p>
-                <input id="desc-input" placeholder="What do you need to do ?" type="text" name="Description">
-            </div>
-
-            <div id="Category-Date-div" class="horizontal">
-                <div id="category-div" class="vertical">
-                    <p id="category">CATEGORY</p>
-                    <select id="category-drop-down" name="category">
-                        <option> Choose a category </option>
-                        <option> Personal </option>
-                        <option> Work </option>
-                        <option> School </option>
-                        <option> Cleaning </option>
-                        <option> Other </option>
-                    </select>
+        <form action="/create-task" , method="post">
+            <div id="task-details-div" class="vertical">
+                <div id="description-div" class="vertical">
+                    <p id="description">DESCRIPTION</p>
+                    <input id="desc-input" placeholder="What do you need to do ?" type="text" name="Description"
+                        required>
                 </div>
 
-                <div id="date-div" class="vertical">
-                    <p id="due-date">DUE Date</p>
-                    <input type="datetime-local" id="date" name="Date" style="width: auto;">
+                <div id="Category-Date-div" class="horizontal">
+                    <div id="category-div" class="vertical">
+                        <p id="category">CATEGORY</p>
+                        <select id="category-drop-down" name="category" required>
+                            <option> Choose a category </option>
+                            <option> Personal </option>
+                            <option> Work </option>
+                            <option> School </option>
+                            <option> Cleaning </option>
+                            <option> Other </option>
+                        </select>
+                    </div>
+
+                    <div id="date-div" class="vertical">
+                        <p id="due-date">DUE Date</p>
+                        <input type="datetime-local" id="date" name="Date" style="width: auto;" required>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="add-delete-button-div" class="horizontal">
-            <button id="add-task-button" class="horizontal">
-                <i class="fa fa-plus"></i>
-                ADD TASK
-            </button>
-            <button id="delete-task-button" class="horizontal">
-                <i class="fa fa-trash"></i>
-                DELETE TASK
-            </button>
-        </div>
+            <div id="add-delete-button-div" class="horizontal">
+                <button id="add-task-button" class="horizontal" type="submit">
+                    <i class="fa fa-plus"></i>
+                    ADD TASK
+                </button>
+                <button id="delete-task-button" class="horizontal" type="submit">
+                    <i class="fa fa-trash"></i>
+                    DELETE TASK
+                </button>
+            </div>
+        </form>
 
         <div id="task-container" class="vertical">
             <% if (taskList.length==0){ %>
-                <img src="https://clickup.com/blog/wp-content/uploads/2019/01/to-do-list-apps.png">
+                <h2>Add your tasks here ...</h2>
                 <% } %>
 
                     <% for(let i=0; i < taskList.length ; i++){ %>

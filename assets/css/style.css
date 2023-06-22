@@ -105,6 +105,7 @@ body {
     height: 100%;
 }
 
+
 #date-div input {
     border: none;
     outline: none;
@@ -123,7 +124,7 @@ body {
 /* Css for add & delete task button */
 #add-delete-button-div {
     border-bottom: 1px solid rgb(163, 162, 162);
-    height: 13%;
+    height: 40% !important;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -139,7 +140,6 @@ body {
     color: white;
     font-size: 16px;
     font-weight: 600;
-    margin-top: -8px;
 }
 
 #add-task-button {
@@ -163,16 +163,17 @@ body {
 
 #task-container {
     overflow-y: scroll;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
-#task-container img {
-    height: 200px;
-    width: 200px;
-    border-radius: 20%;
-    margin-left: 18vw;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    margin-right: 15vw;
+#task-container h2{
+    font-family: cursive;
+    font-weight: 900;
+    color: rgb(18, 110, 146);
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 #task-container::-webkit-scrollbar {

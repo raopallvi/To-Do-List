@@ -30,7 +30,22 @@ app.get('/', function (req, res) {
         })
 })
 
-
+app.post('/create-task' , function(req , res){
+    Task.create({
+        Description:req.body.Description,
+        Category:req.body.category,
+        date : req.body.Date,
+        isDone:false
+    })
+    .then(newTask=>{
+        console.log("************", newTask);
+        return res.redirect('back');
+    })
+    .catch(err=>{
+        console.log("Error in creating new contact", err);
+        return;
+    })
+})
 
 app.listen(port, function (err) {
     if (err) {
