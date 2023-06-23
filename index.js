@@ -16,6 +16,7 @@ app.use(express.static('assets'));
 
 app.use(express.urlencoded());
 
+/* Get request for home page */
 app.get('/', function (req, res) {
     Task.find({})
         .then(task => {
@@ -30,6 +31,7 @@ app.get('/', function (req, res) {
         })
 })
 
+/* Post request for adding new task */
 app.post('/create-task' , function(req , res){
     Task.create({
         Description:req.body.Description,
@@ -47,6 +49,22 @@ app.post('/create-task' , function(req , res){
     })
 })
 
+/* get request for deleting task which are marked as done */
+app.get('/delete-task/' , function(req , res){
+    Task.deleteMany({isDone : true})
+    .then(()=>{
+        return res.redirect('/');
+    })
+    .catch(err=>{
+        console.log("Error in deletion of Task !!" , err);
+    })
+})
+
+/* check task event */
+app.get('/check-task', function(req , res){
+    
+})
+/* Listening on port 8000 */
 app.listen(port, function (err) {
     if (err) {
         console.log("Error : ", err);
