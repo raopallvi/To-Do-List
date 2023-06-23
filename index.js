@@ -32,44 +32,56 @@ app.get('/', function (req, res) {
 })
 
 /* Post request for adding new task */
-app.post('/create-task' , function(req , res){
+app.post('/create-task', function (req, res) {
     Task.create({
-        Description:req.body.Description,
-        Category:req.body.category,
-        date : req.body.Date,
-        isDone:false
+        Description: req.body.Description,
+        Category: req.body.category,
+        date: req.body.Date,
+        isDone: false
     })
-    .then(newTask=>{
-        console.log("************", newTask);
-        return res.redirect('back');
-    })
-    .catch(err=>{
-        console.log("Error in creating new contact", err);
-        return;
-    })
+        .then(newTask => {
+            console.log("************", newTask);
+            return res.redirect('back');
+        })
+        .catch(err => {
+            console.log("Error in creating new contact", err);
+            return;
+        })
 })
 
 /* get request for deleting task which are marked as done */
-app.get('/delete-task/' , function(req , res){
-    Task.deleteMany({isDone : true})
-    .then(()=>{
-        return res.redirect('/');
-    })
-    .catch(err=>{
-        console.log("Error in deletion of Task : " , err);
-    })
+app.get('/delete-task/', function (req, res) {
+    Task.deleteMany({ isDone: true })
+        .then(() => {
+            return res.redirect('/');
+        })
+        .catch(err => {
+            console.log("Error in deletion of Task : ", err);
+        })
 })
 
 /* check task event */
-app.get('/check-task', function(req , res){
-    Task.find({_id:req.body.id})
-    .then(task=>{
+app.get('/check-task/', function (req, res) {
+    const taskId = req.query.id;
+
+  Task.findOne({ _id: taskId })
+    .then(task => {
+      if (task) {
         task.isDone = !task.isDone;
-        return res.redirect('/');
+        return task.save();
+      } else {
+        console.log('Task not found');
+        return res.sendStatus(404);
+      }
     })
-    .catch(err=>{
-        console.log("Error: " , err);
+    .then(() => {
+      console.log('Task updated successfully');
+      return res.redirect('/');
     })
+    .catch(err => {
+      console.error('Error updating the task:', err);
+      return res.sendStatus(500);
+    });
 })
 /* Listening on port 8000 */
 app.listen(port, function (err) {
