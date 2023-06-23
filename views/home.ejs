@@ -38,7 +38,7 @@
                             <option value="Personal"> Personal </option>
                             <option value="Work"> Work </option>
                             <option valye="School"> School </option>
-                            <option value="Cleaning"> Cleaning </option>
+                            <option value="Office"> Office</option>
                             <option value="Other"> Other </option>
                         </select>
                     </div>
@@ -68,9 +68,18 @@
 
                     <% for(let i=0; i < taskList.length ; i++){ %>
                         <div class="horizontal task-division">
-                            <a class="check-boxes" href="/check-task/?id=<%=taskList[i]._id%>">
-                                <input type="checkbox" id="<%=taskList[i]._id%>" onclick="handleCheckboxClick(event)">
-                            </a>
+                            <div class="check-boxes">
+                                <% if(taskList[i].isDone==true){ %>
+                                    <i class="fa fa-check"
+                                        style="color : green; font-weight: 800; font-size:25px !important ;"
+                                        onclick="window.location.href='/check-task/?id=<%= taskList[i]._id %>';"></i>
+                                    <% }else {%>
+                                        <i class="fa fa-check"
+                                            style="color : red; font-weight: 800; font-size:25px !important ;"
+                                            onclick="window.location.href='/check-task/?id=<%= taskList[i]._id %>';"></i>
+                                        <% } %>
+                                            <!-- <input type="checkbox" class="check-boxes" id="<%= taskList[i]._id %>" onclick="window.location.href='/check-task/?id=<%= taskList[i]._id %>';"> -->
+                            </div>
                             <div class="vertical task-information">
                                 <% if (taskList[i].isDone) { %>
                                     <p class="task-text" style="text-decoration: line-through;">
@@ -86,9 +95,28 @@
                                             </p>
                             </div>
                             <div class="task-type">
-                                <div>
-                                    <%= taskList[i].Category %>
-                                </div>
+                                <% if(taskList[i].Category=="Personal" ) { %>
+                                    <div style="background-color: rgb(135, 243, 243);">
+                                        <%= taskList[i].Category %>
+                                    </div>
+                                    <% } else if(taskList[i].Category=="School" ) {%>
+                                        <div style="background-color: rgb(243, 141, 229);">
+                                            <%= taskList[i].Category %>
+                                        </div>
+                                        <% } else if(taskList[i].Category=="Work" ) {%>
+                                            <div style="background-color: #757dec;">
+                                                <%= taskList[i].Category %>
+                                            </div>
+                                            <% } else if(taskList[i].Category=="Office" ) {%>
+                                                <div style="background-color: rgb(169, 64, 218);">
+                                                    <%= taskList[i].Category %>
+                                                </div>
+                                                <% } else if(taskList[i].Category=="Other" ) {%>
+                                                    <div style="background-color: rgb(250, 169, 48);">
+                                                        <%= taskList[i].Category %>
+                                                    </div>
+                                                    <% } %>
+
                             </div>
                         </div>
                         <% } %>
