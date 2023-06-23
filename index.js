@@ -62,7 +62,7 @@ app.get('/delete-task/' , function(req , res){
 
 /* check task event */
 app.get('/check-task', function(req , res){
-    Task.find({id:req.body.id})
+    Task.find({_id:req.body.id})
     .then(task=>{
         task.isDone = !task.isDone;
         return res.redirect('/');

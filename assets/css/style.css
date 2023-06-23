@@ -26,7 +26,7 @@ body {
     height: 40vw;
     width: 50vw;
     background-color: white;
-    border-radius: 8%;
+    border-radius: 2%;
     background: linear-gradient(to right, white, rgb(248, 213, 219));
     box-shadow: 12px 12px 10px rgb(187, 184, 184);
 }
