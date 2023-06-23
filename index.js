@@ -56,13 +56,19 @@ app.get('/delete-task/' , function(req , res){
         return res.redirect('/');
     })
     .catch(err=>{
-        console.log("Error in deletion of Task !!" , err);
+        console.log("Error in deletion of Task : " , err);
     })
 })
 
 /* check task event */
 app.get('/check-task', function(req , res){
-    
+    Task.find({id:req.body.id})
+    .then(task=>{
+        task.isDone = !task.isDone;
+    })
+    .catch(err=>{
+        console.log("Error: " , err);
+    })
 })
 /* Listening on port 8000 */
 app.listen(port, function (err) {
