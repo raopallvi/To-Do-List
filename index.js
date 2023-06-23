@@ -65,6 +65,7 @@ app.get('/check-task', function(req , res){
     Task.find({id:req.body.id})
     .then(task=>{
         task.isDone = !task.isDone;
+        return res.redirect('/');
     })
     .catch(err=>{
         console.log("Error: " , err);
