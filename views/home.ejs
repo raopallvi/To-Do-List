@@ -72,9 +72,16 @@
                                 <input type="checkbox" id="<%=taskList[i].id%>" onclick="handleCheckboxClick(event)">
                             </a>
                             <div class="vertical task-information">
-                                <p class="task-text">
-                                    <%=taskList[i].Description %>
-                                </p>
+                                <%= if(taskList[i].isDone) { %>
+                                    <p class="task-text" style="text-decoration: line-through;">
+                                        <%=taskList[i].Description %>
+                                    </p>
+                                <% } %>
+                                <% else{ %>
+                                    <p class="task-text">
+                                        <%=taskList[i].Description %>
+                                    </p>
+                                <% } %>
                                 <p class="date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%= taskList[i].date %>
                                 </p>
                             </div>
